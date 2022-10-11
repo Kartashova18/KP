@@ -1,0 +1,105 @@
+@startuml
+class com.megainf3d.informmodelsystcreator.Tables.TextObserver {
+~ RelationListener update
++ void update()
+}
+class com.megainf3d.informmodelsystcreator.Tables.ConnectPoint {
++ X item1
++ Y item2
+}
+enum com.megainf3d.informmodelsystcreator.Tables.RelationType {
++  ONE_TO_ONE
++  MANY_TO_MANY
++  ONE_TO_MANY
+}
+class com.megainf3d.informmodelsystcreator.Tables.Table {
+~ List<Attribute> attributes
+~ double X
+~ String Title
+# double Width
+# TextField textFieldTitle
+- TextObserver observer
+# Label labelTitle
+- double mouseAnchorX
+- double mouseAnchorY
++ double getY()
++ double getX()
++ String getTitle()
+- void settingText()
++ void updatePosition(double,double)
++ void setObserver(TextObserver)
++ void notifyObservers()
++ Attribute addAttribute(String,KeyType,AttributeType)
++ double getTableWidth()
++ double getTableKeysHeight()
++ double getTableAttributesHeight()
++ void draw()
++ ArrayList<Point2D> getArrayOfMinMaxPoints()
++ boolean equals(Table)
+}
+interface com.megainf3d.informmodelsystcreator.Tables.RelationListener {
+~ void onEdit()
+}
+class com.megainf3d.informmodelsystcreator.Tables.Tables {
+- ArrayList<Table> tables
+- ArrayList<Relation> relations
++ Table addTable(double,double,String)
++ boolean containsTable(Table)
++ Relation addRelation(Table,Table,RelationType)
++ void deleteAllTables()
++ void deleteAllRelations()
++ ArrayList<Table> getTables()
++ ArrayList<Relation> getAllRelations()
++ void deleteRelation(Relation)
++ void deleteTable(Table)
++ {static} void exportSchema(Tables)
++ {static} void exportImage(WritableImage)
++ {static} Tables importSchema()
++ Table clone(Table)
+}
+enum com.megainf3d.informmodelsystcreator.Tables.KeyType {
++  PRIMARY
++  FOREIGN
++  NONE
+}
+class com.megainf3d.informmodelsystcreator.Tables.Relation {
+~ Table First
+~ RelationType Type
+- {static} String getType(RelationType,boolean)
+- {static} double getTextX(double,Table)
+- {static} double getTextY(double,Table)
++ Table getFirst()
++ Table getLast()
++ RelationType getType()
++ {static} ConnectPoint<Point2D,Point2D> getPointsOfConnection(Table,Table)
+}
+class com.megainf3d.informmodelsystcreator.Tables.Attribute {
+- KeyType keyType
+- String text
+- AttributeType type
+- double Width
++ void update(String,KeyType,AttributeType)
++ KeyType getKeyType()
++ String getText()
++ AttributeType getType()
++ double getHeight()
++ double getWidth()
++ void draw()
+}
+enum com.megainf3d.informmodelsystcreator.Tables.AttributeType {
++  CHAR
++  INT
++  MONEY
++  DATE
++  IMG
+}
+
+
+java.io.Serializable <|.. com.megainf3d.informmodelsystcreator.Tables.Table
+javafx.scene.Group <|-- com.megainf3d.informmodelsystcreator.Tables.Table
+com.megainf3d.informmodelsystcreator.Tables.Serializable <|.. com.megainf3d.informmodelsystcreator.Tables.Tables
+java.io.Serializable <|.. com.megainf3d.informmodelsystcreator.Tables.Relation
+javafx.scene.Group <|-- com.megainf3d.informmodelsystcreator.Tables.Relation
+java.io.Serializable <|.. com.megainf3d.informmodelsystcreator.Tables.Attribute
+javafx.scene.Group <|-- com.megainf3d.informmodelsystcreator.Tables.Attribute
+@enduml
