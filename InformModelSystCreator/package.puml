@@ -1,0 +1,19 @@
+@startuml
+class com.megainf3d.informmodelsystcreator.Adapters.XMLTable {
+}
+class com.megainf3d.informmodelsystcreator.Adapters.XMLRelation {
+}
+class com.megainf3d.informmodelsystcreator.Adapters.RelationAdapter {
+}
+class com.megainf3d.informmodelsystcreator.Adapters.AttributeAdapter {
+}
+class com.megainf3d.informmodelsystcreator.Adapters.XMLAttribute {
+}
+class com.megainf3d.informmodelsystcreator.Adapters.TableAdapter {
+}
+
+
+javax.xml.bind.annotation.adapters.XmlAdapter <|-- com.megainf3d.informmodelsystcreator.Adapters.RelationAdapter
+javax.xml.bind.annotation.adapters.XmlAdapter <|-- com.megainf3d.informmodelsystcreator.Adapters.AttributeAdapter
+javax.xml.bind.annotation.adapters.XmlAdapter <|-- com.megainf3d.informmodelsystcreator.Adapters.TableAdapter
+@enduml

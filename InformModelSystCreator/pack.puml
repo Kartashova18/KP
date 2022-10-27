@@ -1,0 +1,75 @@
+@startuml
+class com.megainf3d.informmodelsystcreator.Tables.TextObserver {
+}
+interface com.megainf3d.informmodelsystcreator.Iterator.Aggregate {
+}
+enum com.megainf3d.informmodelsystcreator.StyleType {
++  DARK
++  BRIGHT
+}
+interface com.megainf3d.informmodelsystcreator.Iterator.Iterator {
+}
+class com.megainf3d.informmodelsystcreator.Adapters.XMLTable {
+}
+enum com.megainf3d.informmodelsystcreator.Tables.AttributeType {
++  CHAR
++  INT
++  MONEY
++  DATE
++  IMG
+}
+enum com.megainf3d.informmodelsystcreator.Tables.RelationType {
++  ONE_TO_ONE
++  MANY_TO_MANY
++  ONE_TO_MANY
+}
+class com.megainf3d.informmodelsystcreator.Tables.Table {
+}
+class com.megainf3d.informmodelsystcreator.Tables.Tables {
+}
+class com.megainf3d.informmodelsystcreator.Adapters.XMLRelation {
+}
+class com.megainf3d.informmodelsystcreator.Adapters.AttributeAdapter {
+}
+class com.megainf3d.informmodelsystcreator.Adapters.XMLAttribute {
+}
+class com.megainf3d.informmodelsystcreator.Adapters.TableAdapter {
+}
+interface com.megainf3d.informmodelsystcreator.Tables.RelationListener {
+}
+class com.megainf3d.informmodelsystcreator.Iterator.Diagrams {
+}
+class com.megainf3d.informmodelsystcreator.Tables.Relation {
+}
+class com.megainf3d.informmodelsystcreator.Tables.ConnectPoint {
+}
+class com.megainf3d.informmodelsystcreator.Iterator.DiagramsIterator {
+}
+enum com.megainf3d.informmodelsystcreator.Tables.KeyType {
++  PRIMARY
++  FOREIGN
++  NONE
+}
+class com.megainf3d.informmodelsystcreator.Tables.Attribute {
+}
+class com.megainf3d.informmodelsystcreator.Adapters.RelationAdapter {
+}
+class com.megainf3d.informmodelsystcreator.Tables.Book {
+}
+class com.megainf3d.informmodelsystcreator.HelloController {
+}
+class com.megainf3d.informmodelsystcreator.HelloApplication {
+}
+
+
+javafx.scene.Group <|-- com.megainf3d.informmodelsystcreator.Tables.Table
+javax.xml.bind.annotation.adapters.XmlAdapter <|-- com.megainf3d.informmodelsystcreator.Adapters.AttributeAdapter
+javax.xml.bind.annotation.adapters.XmlAdapter <|-- com.megainf3d.informmodelsystcreator.Adapters.TableAdapter
+com.megainf3d.informmodelsystcreator.Iterator.Aggregate <|.. com.megainf3d.informmodelsystcreator.Iterator.Diagrams
+javafx.scene.Group <|-- com.megainf3d.informmodelsystcreator.Tables.Relation
+com.megainf3d.informmodelsystcreator.Iterator.Iterator <|.. com.megainf3d.informmodelsystcreator.Iterator.DiagramsIterator
+javafx.scene.Group <|-- com.megainf3d.informmodelsystcreator.Tables.Attribute
+javax.xml.bind.annotation.adapters.XmlAdapter <|-- com.megainf3d.informmodelsystcreator.Adapters.RelationAdapter
+javafx.fxml.Initializable <|.. com.megainf3d.informmodelsystcreator.HelloController
+javafx.application.Application <|-- com.megainf3d.informmodelsystcreator.HelloApplication
+@enduml
